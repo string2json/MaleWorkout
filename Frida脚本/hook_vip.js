@@ -1,62 +1,86 @@
-console.log('[*] MaleWorkout Hook Script Loaded');
+console.log('[*] MaleWorkout VIP Unlock Script Started');
+console.log('[*] Version: 1.0');
+console.log('[*] Author: string2json');
 
 if (ObjC.available) {
     console.log('[+] Objective-C runtime available');
     
-    var targetClasses = [];
+    const NSUserDefaults = ObjC.classes.NSUserDefaults;
     
-    for (var className in ObjC.classes) {
-        if (ObjC.classes.hasOwnProperty(className)) {
-            var methods = ObjC.classes[className].$ownMethods;
+    const boolForKey = NSUserDefaults['- boolForKey:'];
+    
+    if (boolForKey) {
+        console.log('[+] Found boolForKey method');
+        
+        Interceptor.attach(boolForKey.implementation, {
+            onEnter: function(args) {
+                const key = ObjC.Object(args[2]).toString();
+                this.key = key;
+            },
+            onLeave: function(retval) {
+                const key = this.key;
+                
+                if (key.toLowerCase().includes('vip') ||
+                    key.toLowerCase().includes('pro') ||
+                    key.toLowerCase().includes('premium') ||
+                    key.toLowerCase().includes('subscription') ||
+                    key.toLowerCase().includes('purchase') ||
+                    key.toLowerCase().includes('unlock') ||
+                    key.toLowerCase().includes('member') ||
+                    key.toLowerCase().includes('entitlement') ||
+                    key.toLowerCase().includes('is') ||
+                    key.toLowerCase().includes('has')) {
+                    
+                    console.log('[+] Intercepted key: ' + key);
+                    console.log('[+] Original value: ' + retval);
+                    retval.replace(0x1);
+                    console.log('[+] Modified to: true');
+                }
+            }
+        });
+    }
+    
+    const classes = [
+        'User', 'Account', 'Subscription', 'VIP', 'Premium', 'Member',
+        'Purchase', 'Payment', 'Entitlement', 'UserManager', 'AccountManager',
+        'UserData', 'UserInfo', 'UserProfile', 'SubscriptionManager'
+    ];
+    
+    classes.forEach(function(className) {
+        if (ObjC.classes[className]) {
+            console.log('[+] Found class: ' + className);
+            
+            const methods = ObjC.classes[className].$ownMethods;
             methods.forEach(function(method) {
-                var methodLower = method.toLowerCase();
-                if (methodLower.includes('vip') || 
-                    methodLower.includes('premium') || 
-                    methodLower.includes('pro') ||
-                    methodLower.includes('subscribe') ||
-                    methodLower.includes('purchase') ||
-                    methodLower.includes('paid') ||
-                    methodLower.includes('member') ||
-                    methodLower.includes('unlock') ||
-                    methodLower.includes('valid') ||
-                    methodLower.includes('expire') ||
-                    methodLower.includes('license')) {
-                    console.log('[+] Found: ' + className + ' ' + method);
-                    targetClasses.push({className: className, method: method});
+                if (method.toLowerCase().includes('vip') ||
+                    method.toLowerCase().includes('pro') ||
+                    method.toLowerCase().includes('premium') ||
+                    method.toLowerCase().includes('subscription') ||
+                    method.toLowerCase().includes('purchase') ||
+                    method.toLowerCase().includes('unlock')) {
+                    
+                    console.log('[+] Found VIP method: ' + className + ' ' + method);
+                    
+                    try {
+                        Interceptor.attach(ObjC.classes[className][method].implementation, {
+                            onLeave: function(retval) {
+                                console.log('[+] Hooked: ' + className + ' ' + method);
+                                console.log('[+] Original return: ' + retval);
+                                retval.replace(0x1);
+                                console.log('[+] Modified to: true');
+                            }
+                        });
+                    } catch (e) {
+                        console.log('[-] Failed to hook: ' + className + ' ' + method);
+                        console.log('[-] Error: ' + e);
+                    }
                 }
             });
         }
-    }
-    
-    console.log('[*] Total found: ' + targetClasses.length + ' methods');
-    
-    targetClasses.forEach(function(item) {
-        try {
-            var className = item.className;
-            var methodName = item.method;
-            
-            if (methodName.includes('is') || methodName.includes('has') || methodName.includes('can')) {
-                console.log('[*] Hooking: ' + className + ' ' + methodName);
-                
-                Interceptor.attach(
-                    ObjC.classes[className][methodName].implementation,
-                    {
-                        onLeave: function(retval) {
-                            console.log('[Hook] ' + className + ' ' + methodName);
-                            console.log('  Original return: ' + retval);
-                            retval.replace(0x1);
-                            console.log('  Modified to: true');
-                        }
-                    }
-                );
-            }
-        } catch (e) {
-            console.log('[-] Failed to hook: ' + item.className + ' ' + item.method);
-            console.log('  Error: ' + e);
-        }
     });
     
-    console.log('[+] Hook script initialized');
+    console.log('[*] Hook setup complete');
+    console.log('[*] Please interact with the app to trigger VIP checks');
     
 } else {
     console.log('[-] Objective-C runtime not available');
