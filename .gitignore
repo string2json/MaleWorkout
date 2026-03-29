@@ -1,0 +1,18 @@
+# 临时文件
+*.tmp
+*.log
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# IDE文件
+.vscode/
+.idea/
+
+# 参考文件
+xmind.plugin
+
+# 原始dylib文件（可选，如果不需要可以注释掉）
+# data/
+# data.tar

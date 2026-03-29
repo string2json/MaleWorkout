@@ -1,0 +1,14 @@
+#!name=MaleWorkout健身解锁
+#!desc=解锁MaleWorkout健身应用Pro/VIP功能，支持所有高级训练计划
+#!openUrl=https://t.me/Functional_Store_Hub
+#!homepage=https://yfamily.ml
+#!author=Your Name
+#!manual=https://t.me/Functional_Store_Hub/10
+#!icon=https://raw.githubusercontent.com/deezertidal/private/main/icons/workout.png
+#!other=MaleWorkout.Loong.plugin
+
+[Script]
+http-response https?:\/\/.*maleworkout.*\/api\/(user|profile|subscription|vip|member) script-path=https://raw.githubusercontent.com/string2json/MaleWorkout/main/Loon%E6%8F%92%E4%BB%B6%E6%A0%87%E5%87%86%E7%89%88/maleworkout.js,requires-body=true, timeout=10, tag=MaleWorkout健身解锁
+
+[MITM]
+hostname = api.maleworkout.com,*.maleworkout.com
