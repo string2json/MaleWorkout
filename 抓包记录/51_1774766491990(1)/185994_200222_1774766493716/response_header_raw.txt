@@ -1,0 +1,17 @@
+:status: 200
+content-type: application/octet-stream
+content-length: 14902
+last-modified: Fri, 15 Aug 2025 06:16:44 GMT
+x-amz-server-side-encryption: AES256
+x-amz-version-id: tMGyrZt5eR9a91NaWJUdjcx.QtgNbNf3
+accept-ranges: bytes
+server: AmazonS3
+date: Sat, 28 Mar 2026 19:57:13 GMT
+etag: "7e5d82ac840066e18b869e1b309ac49f"
+vary: Accept-Encoding
+x-cache: Hit from cloudfront
+via: 1.1 ceeb3cb9fc5d92635fc354464a1dae10.cloudfront.net (CloudFront)
+x-amz-cf-pop: HKG54-P2
+x-amz-cf-id: iDN3B4G3RFwXsKBsQoQYceuVZbiKs9OYbHL6it47H3YwqQVOB_-npA==
+age: 62739
+

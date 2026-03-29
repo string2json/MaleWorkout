@@ -1,0 +1,9 @@
+:scheme: https
+:path: /appself/com.abishkking.maleworkout/attributes/v3030_gat_rank
+:authority: resource.leap.app
+:method: GET
+user-agent: homeworkout/273 CFNetwork/3826.600.41 Darwin/24.6.0
+accept: */*
+accept-language: zh-CN,zh-Hans;q=0.9
+accept-encoding: gzip, deflate, br
+
