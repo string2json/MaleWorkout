@@ -8,7 +8,7 @@
 #!other=MaleWorkout.Loong.plugin
 
 [Script]
-http-response https?:\/\/.*maleworkout.*\/api\/(user|profile|subscription|vip|member) script-path=https://raw.githubusercontent.com/string2json/MaleWorkout/refs/heads/master/Loon%E6%8F%92%E4%BB%B6%E6%A0%87%E5%87%86%E7%89%88/maleworkout.js,requires-body=true, timeout=10, tag=MaleWorkout健身解锁
+http-response https?:\/\/resource\.leap\.app\/appself\/com\.abishkking\.maleworkout\/attributes\/.* script-path=https://raw.githubusercontent.com/string2json/MaleWorkout/refs/heads/master/Loon%E6%8F%92%E4%BB%B6%E6%A0%87%E5%87%86%E7%89%88/maleworkout.js,requires-body=true, timeout=10, tag=MaleWorkout健身解锁
 
 [MITM]
-hostname = api.maleworkout.com,*.maleworkout.com
+hostname = resource.leap.app, *.leap.app
