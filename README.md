@@ -55,7 +55,7 @@ MaleWorkout/
 3. 点击右上角 **+** → **URL**
 4. 粘贴以下地址：
    ```
-   https://raw.githubusercontent.com/string2json/MaleWorkout/main/Loon插件标准版/MaleWorkout.plugin
+   https://raw.githubusercontent.com/string2json/MaleWorkout/refs/heads/master/Loon插件标准版/MaleWorkout.plugin
    ```
 5. 点击 **安装**
 
