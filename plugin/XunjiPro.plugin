@@ -1,0 +1,11 @@
+#!name=训记PRO解锁
+#!desc=解锁训记APP PRO功能（适配6.19.09版本）
+#!author=ios151
+#!homepage=https://github.com/Yu9191/Script
+#!url=https://raw.githubusercontent.com/string2json/MaleWorkout/refs/heads/master/plugin/XunjiPro.plugin
+
+[Script]
+http-request ^https:\/\/api\.xunjiapp\.cn\/whole_user_info_v4 script-path=https://raw.githubusercontent.com/string2json/MaleWorkout/refs/heads/master/plugin/xunji61109.js, tag=训记PRO解锁
+
+[MITM]
+hostname = api.xunjiapp.cn
