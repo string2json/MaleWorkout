@@ -1,12 +1,11 @@
-#!name = 训记PRO解锁
-#!desc = 解锁训记APP PRO功能（基于Yu9191旧版本改编）
-#!author = ios151 (改编)
-#!homepage = https://github.com/string2json/MaleWorkout
-#!url = https://raw.githubusercontent.com/string2json/MaleWorkout/refs/heads/master/训记/XunjiPro.plugin
+#!name=训记PRO解锁
+#!desc=解锁训记APP PRO功能（基于Yu9191旧版本改编）
+#!author=string2json
+#!homepage=https://github.com/string2json/MaleWorkout
+#!url=https://raw.githubusercontent.com/string2json/MaleWorkout/refs/heads/master/%E8%AE%AD%E8%AE%B0/XunjiPro.plugin
 
 [Script]
-# 修改用户信息请求头
-xunji-pro = type=http-request, pattern=^https:\/\/api\.xunjiapp\.cn\/whole_user_info, requires-body=0, max-size=0, script-path=https://raw.githubusercontent.com/string2json/MaleWorkout/refs/heads/master/训记/xunji_pro.js
+http-request ^https:\/\/api\.xunjiapp\.cn\/whole_user_info script-path=https://raw.githubusercontent.com/string2json/MaleWorkout/refs/heads/master/%E8%AE%AD%E8%AE%B0/xunji_pro.js, tag=训记PRO解锁
 
 [MITM]
-hostname = %APPEND% api.xunjiapp.cn
+hostname = api.xunjiapp.cn
