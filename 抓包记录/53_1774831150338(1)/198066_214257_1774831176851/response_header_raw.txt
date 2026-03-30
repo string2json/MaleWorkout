@@ -1,0 +1,27 @@
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: video/mp4
+Content-Length: 673681
+Connection: keep-alive
+Date: Mon, 16 Mar 2026 09:03:25 GMT
+x-oss-request-id: 69B7C75D0EF7D03835838FB7
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+ETag: "01DE321952F5EEEC985E481E7C5E8B8B"
+Last-Modified: Sun, 15 Mar 2026 15:34:00 GMT
+x-oss-object-type: Normal
+x-oss-hash-crc64ecma: 11855379022669500259
+x-oss-storage-class: Standard
+Cache-Control: public, max-age=31536000
+Content-MD5: Ad4yGVL17uyYXkgefF6Liw==
+x-oss-server-time: 28
+Via: ens-cache15.l2cn7147[0,18,200-0,H], ens-cache31.l2cn7147[22,0], kunlun7.cn8033[0,1,200-0,H], kunlun3.cn8033[3,0]
+Age: 1179372
+Ali-Swift-Global-Savetime: 1773651805
+X-Cache: HIT TCP_HIT dirn:9:727424222
+X-Swift-SaveTime: Tue, 17 Mar 2026 04:46:05 GMT
+X-Swift-CacheTime: 31465040
+Access-Control-Allow-Origin: *
+Timing-Allow-Origin: *
+EagleId: 3df10d1717748311769967443e
+

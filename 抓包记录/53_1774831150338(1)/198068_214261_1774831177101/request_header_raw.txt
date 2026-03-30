@@ -1,0 +1,9 @@
+:scheme: https
+:path: /xunjipro/barbell-bench-press-front.png
+:authority: tupian.xunjiapp.cn
+:method: GET
+user-agent: trainnote/7.00.295 (iPhone; iOS 18.6.2; Scale/3.00)
+accept: image/*,*/*;q=0.8
+accept-language: zh-CN,zh-Hans;q=0.9
+accept-encoding: gzip, deflate, br
+

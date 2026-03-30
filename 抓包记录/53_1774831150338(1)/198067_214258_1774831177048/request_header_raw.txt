@@ -1,0 +1,9 @@
+:scheme: https
+:path: /xunjipro/00251201-Barbell-Bench-Press_Chest_withnewxunji.mp4
+:authority: tupian.xunjiapp.cn
+:method: GET
+user-agent: trainnote/1 CFNetwork/3826.600.41 Darwin/24.6.0
+accept: */*
+accept-language: zh-CN,zh-Hans;q=0.9
+accept-encoding: gzip, deflate, br
+

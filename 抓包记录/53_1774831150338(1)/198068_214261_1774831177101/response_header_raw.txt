@@ -1,0 +1,26 @@
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: image/png
+Content-Length: 8376
+Connection: keep-alive
+Date: Sun, 29 Mar 2026 23:50:56 GMT
+x-oss-request-id: 69C9BAE03BC8193934BD57E6
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+x-oss-object-type: Normal
+x-oss-storage-class: Standard
+Content-MD5: kTEUW9BNJHw5IlvJdRJcAQ==
+x-oss-server-time: 41
+Via: ens-cache26.l2cn7147[0,0,304-0,H], ens-cache58.l2cn7147[1,0], kunlun6.cn8033[0,0,200-0,H], kunlun1.cn8033[1,0]
+ETag: "9131145BD04D247C39225BC975125C01"
+Last-Modified: Thu, 31 Mar 2022 04:51:41 GMT
+x-oss-hash-crc64ecma: 4203362834330403102
+Age: 2921
+Ali-Swift-Global-Savetime: 1774828256
+X-Cache: HIT TCP_MEM_HIT dirn:-2:-2
+X-Swift-SaveTime: Mon, 30 Mar 2026 00:37:48 GMT
+X-Swift-CacheTime: 3600
+Access-Control-Allow-Origin: *
+Timing-Allow-Origin: *
+EagleId: 3df10d1517748311773092079e
+

@@ -1,0 +1,13 @@
+:scheme: https
+:path: /whole_user_info_v4
+:authority: api.xunjiapp.cn
+:method: GET
+accept: */*
+content-type: application/json
+user-agent: trainnote/1 CFNetwork/1325.0.1 Darwin/21.1.0
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvcGVuaWQiOiJvRmRFZzFBcUMtUWVSMXp6UE1Eb0JlLVhIcHhNIiwiaWF0IjoxNjkxNzYzNDI5fQ.7RigChAJJhmDGTgqFnBSkJurBT_Pkjp0JsZ3uPzNPnw
+user-agent: trainnote/1 CFNetwork/3826.600.41 Darwin/24.6.0
+accept-language: zh-CN,zh-Hans;q=0.9
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvcGVuaWQiOiJvRmRFZzFHN1FiSmtENE5FVmZBbVRZWkd2YUtFIiwiaWF0IjoxNzc0ODMxMTI0fQ.I09ZQcYBVswRWx_dwD-iHwqRQm5ZBjJoP8UARymDCVA
+accept-encoding: gzip, deflate, br
+

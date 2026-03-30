@@ -1,0 +1,12 @@
+:scheme: https
+:path: /SCTS_backup_gzip
+:authority: api.xunjiapp.cn
+:method: POST
+accept: */*
+content-type: application/json
+accept-encoding: gzip
+content-length: 28
+user-agent: trainnote/1 CFNetwork/3826.600.41 Darwin/24.6.0
+accept-language: zh-CN,zh-Hans;q=0.9
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvcGVuaWQiOiJvRmRFZzFHN1FiSmtENE5FVmZBbVRZWkd2YUtFIiwiaWF0IjoxNzc0ODMxMTI0fQ.I09ZQcYBVswRWx_dwD-iHwqRQm5ZBjJoP8UARymDCVA
+

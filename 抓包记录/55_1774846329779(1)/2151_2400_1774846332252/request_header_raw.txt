@@ -1,0 +1,11 @@
+:scheme: https
+:path: /after310/ios
+:authority: api.xunjiapp.cn
+:method: GET
+accept: */*
+content-type: application/json
+accept-encoding: gzip, deflate, br
+user-agent: trainnote/1 CFNetwork/3826.600.41 Darwin/24.6.0
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvcGVuaWQiOiJvRmRFZzFHN1FiSmtENE5FVmZBbVRZWkd2YUtFIiwiaWF0IjoxNzc0ODMxMTI0fQ.I09ZQcYBVswRWx_dwD-iHwqRQm5ZBjJoP8UARymDCVA
+accept-language: zh-CN,zh-Hans;q=0.9
+

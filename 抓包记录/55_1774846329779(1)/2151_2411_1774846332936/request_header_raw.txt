@@ -1,0 +1,12 @@
+:scheme: https
+:path: /check_train_version
+:authority: api.xunjiapp.cn
+:method: POST
+accept: */*
+content-type: application/json
+accept-language: zh-CN,zh-Hans;q=0.9
+accept-encoding: gzip, deflate, br
+user-agent: trainnote/1 CFNetwork/3826.600.41 Darwin/24.6.0
+content-length: 0
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvcGVuaWQiOiJvRmRFZzFHN1FiSmtENE5FVmZBbVRZWkd2YUtFIiwiaWF0IjoxNzc0ODMxMTI0fQ.I09ZQcYBVswRWx_dwD-iHwqRQm5ZBjJoP8UARymDCVA
+
