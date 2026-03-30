@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>训记PRO解锁代码分析</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        .container {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .success {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .error {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .info {
+            color: #17a2b8;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: #667eea;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+        .btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        .btn:hover {
+            background: #5568d3;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 20px;
+            background: #e7f3ff;
+            border-radius: 5px;
+            border: 1px solid #b3d9ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔓 训记PRO解锁代码深度分析</h1>
+
+        <div class="section">
+            <h2>📊 代码结构分析</h2>
+            <p>解密后的代码主要包含以下几个部分：</p>
+            <table>
+                <tr>
+                    <th>部分</th>
+                    <th>行数</th>
+                    <th>功能</th>
+                    <th>重要性</th>
+                </tr>
+                <tr>
+                    <td>混淆标识</td>
+                    <td>1-2</td>
+                    <td>标记混淆工具版本</td>
+                    <td>⭐</td>
+                </tr>
+                <tr>
+                    <td>反调试代码</td>
+                    <td>3-69</td>
+                    <td>防止代码被分析</td>
+                    <td>⭐⭐</td>
+                </tr>
+                <tr>
+                    <td>解密函数b()</td>
+                    <td>70-120</td>
+                    <td>RC4解密核心函数</td>
+                    <td>⭐⭐⭐⭐⭐</td>
+                </tr>
+                <tr>
+                    <td><span class="highlight">核心逻辑</span></td>
+                    <td><span class="highlight">171-175</span></td>
+                    <td><span class="highlight">修改请求头解锁PRO</span></td>
+                    <td><span class="highlight">⭐⭐⭐⭐⭐</span></td>
+                </tr>
+                <tr>
+                    <td>字符串表</td>
+                    <td>176-185</td>
+                    <td>加密的字符串数据</td>
+                    <td>⭐⭐⭐</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>🎯 核心逻辑分析</h2>
+            <div class="code-block">
+var modifiedHeaders = $request[r(227, "f8gZ")];
+modifiedHeaders[r(221, "vKED")] = r(217, "Iu#s");
+modifiedHeaders[r(231, "D0Sh")] = "trainnote/1 CFNetwork/1325.0.1 Darwin/21.1.0";
+$done({"headers": modifiedHeaders});
+            </div>
+            
+            <h3>关键代码解析：</h3>
+            <p><strong>第1行：</strong>获取HTTP请求头</p>
+            <ul>
+                <li><code>$request</code> - Surge/Loon提供的请求对象</li>
+                <li><code>r(227, "f8gZ")</code> - 解密后应该是 <span class="highlight">"headers"</span></li>
+            </ul>
+
+            <p><strong>第2行：</strong>修改关键请求头（PRO解锁关键）</p>
+            <ul>
+                <li><code>r(221, "vKED")</code> - 解密后应该是某个请求头名称</li>
+                <li><code>r(217, "Iu#s")</code> - 解密后应该是PRO用户标识</li>
+            </ul>
+
+            <p><strong>第3行：</strong>修改User-Agent</p>
+            <ul>
+                <li><code>r(231, "D0Sh")</code> - 解密后应该是 <span class="highlight">"User-Agent"</span></li>
+                <li>设置为特定版本的User-Agent</li>
+            </ul>
+
+            <p><strong>第4行：</strong>完成修改</p>
+            <ul>
+                <li><code>$done()</code> - 返回修改后的请求头</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🔧 手动解密工具</h2>
+            <p>点击下方按钮，在浏览器控制台中解密关键字符串：</p>
+            
+            <button class="btn" onclick="decryptStrings()">🔓 解密关键字符串</button>
+            <button class="btn" onclick="showDecryptionLogic()">📖 显示解密逻辑</button>
+            
+            <div id="result"></div>
+        </div>
+
+        <div class="section">
+            <h2>💡 解密原理</h2>
+            <h3>r()函数实际上是b()函数的别名</h3>
+            <div class="code-block">
+function b(opt_attributes, locals) {
+    // 1. 获取加密字符串表
+    var params = a();
+    
+    // 2. 计算索引
+    replacementHash = replacementHash - 216;
+    
+    // 3. 获取加密数据
+    var data = params[replacementHash];
+    
+    // 4. RC4解密
+    data = b["pMTJwy"](data, key);
+    
+    // 5. 返回解密后的字符串
+    return data;
+}
+            </div>
+            
+            <h3>RC4解密算法</h3>
+            <p>代码使用了RC4流加密算法，密钥是传入的第二个参数（如"f8gZ"、"vKED"等）</p>
+        </div>
+
+        <div class="section">
+            <h2>🎯 PRO解锁机制</h2>
+            <table>
+                <tr>
+                    <th>步骤</th>
+                    <th>操作</th>
+                    <th>目的</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>拦截API请求</td>
+                    <td>获取原始请求</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>修改请求头</td>
+                    <td>添加PRO用户标识</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>修改User-Agent</td>
+                    <td>伪装成特定版本</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>发送修改后的请求</td>
+                    <td>欺骗服务器</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>服务器返回PRO数据</td>
+                    <td>成功解锁</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>📝 推测的解密结果</h2>
+            <p>基于代码分析，推测的解密结果：</p>
+            <div class="code-block">
+// 原始代码
+var modifiedHeaders = $request[r(227, "f8gZ")];
+modifiedHeaders[r(221, "vKED")] = r(217, "Iu#s");
+modifiedHeaders[r(231, "D0Sh")] = "trainnote/1 CFNetwork/1325.0.1 Darwin/21.1.0";
+
+// 推测的解密结果
+var modifiedHeaders = $request["headers"];
+modifiedHeaders["X-Custom-Token"] = "PRO_USER_TOKEN";
+modifiedHeaders["User-Agent"] = "trainnote/1 CFNetwork/1325.0.1 Darwin/21.1.0";
+            </div>
+            
+            <p class="info">💡 注意：实际的请求头名称和值需要通过运行解密函数才能确定</p>
+        </div>
+
+        <div class="section">
+            <h2>🚀 如何验证解密结果</h2>
+            <p>在浏览器控制台中执行以下步骤：</p>
+            <ol>
+                <li>打开浏览器开发者工具（F12）</li>
+                <li>切换到Console标签</li>
+                <li>复制整个xunjijiemi.js文件内容</li>
+                <li>粘贴并执行</li>
+                <li>手动调用r()函数查看解密结果</li>
+            </ol>
+            
+            <div class="code-block">
+// 在控制台中执行
+console.log(r(227, "f8gZ"));  // 应该输出 "headers"
+console.log(r(221, "vKED"));  // 应该输出请求头名称
+console.log(r(217, "Iu#s"));  // 应该输出PRO标识
+console.log(r(231, "D0Sh"));  // 应该输出 "User-Agent"
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 关键发现</h2>
+            <div class="success">
+                ✅ 成功识别核心逻辑：修改HTTP请求头
+            </div>
+            <div class="success">
+                ✅ 成功识别解密函数：RC4算法
+            </div>
+            <div class="success">
+                ✅ 成功定位关键代码：第171-175行
+            </div>
+            <div class="info">
+                ℹ️ 需要进一步验证：具体的请求头名称和值
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎓 学习价值</h2>
+            <p>通过分析这个文件，你可以学习到：</p>
+            <ul>
+                <li>✅ JavaScript混淆技术</li>
+                <li>✅ RC4加密算法</li>
+                <li>✅ Surge/Loon脚本开发</li>
+                <li>✅ HTTP请求拦截与修改</li>
+                <li>✅ 逆向工程思维</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function decryptStrings() {
+            var resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<h3>🔓 解密结果：</h3>';
+            resultDiv.innerHTML += '<p>请在浏览器控制台中执行以下代码：</p>';
+            resultDiv.innerHTML += '<div class="code-block">// 1. 复制xunjijiemi.js的全部内容到控制台\n// 2. 执行以下代码：\n\nconsole.log("r(227, f8gZ) =", r(227, "f8gZ"));\nconsole.log("r(221, vKED) =", r(221, "vKED"));\nconsole.log("r(217, Iu#s) =", r(217, "Iu#s"));\nconsole.log("r(231, D0Sh) =", r(231, "D0Sh"));</div>';
+            resultDiv.innerHTML += '<p class="info">💡 提示：由于代码中使用了Surge/Loon特有的$request对象，需要在实际环境中运行</p>';
+        }
+
+        function showDecryptionLogic() {
+            var resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<h3>📖 解密逻辑：</h3>';
+            resultDiv.innerHTML += '<p>r()函数的解密过程：</p>';
+            resultDiv.innerHTML += '<ol>';
+            resultDiv.innerHTML += '<li>接收两个参数：索引（如227）和密钥（如"f8gZ"）</li>';
+            resultDiv.innerHTML += '<li>从字符串表中获取加密数据</li>';
+            resultDiv.innerHTML += '<li>使用RC4算法解密数据</li>';
+            resultDiv.innerHTML += '<li>返回解密后的明文字符串</li>';
+            resultDiv.innerHTML += '</ol>';
+            resultDiv.innerHTML += '<div class="code-block">function r(index, key) {\n    // 1. 索引转换\n    index = index - 216;\n    \n    // 2. 获取加密数据\n    var encrypted = stringTable[index];\n    \n    // 3. RC4解密\n    var decrypted = RC4(encrypted, key);\n    \n    // 4. 返回结果\n    return decrypted;\n}</div>';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>训记PRO解锁 - 字符串解密器</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .section {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            white-space: pre-wrap;
+        }
+        .result {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #5568d3;
+        }
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: #667eea;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔓 训记PRO解锁 - 字符串解密器</h1>
+
+        <div class="section">
+            <h2>📋 使用说明</h2>
+            <p>这个工具会自动解密xunjijiemi.js中的关键字符串，帮助你理解PRO解锁机制。</p>
+            <ol>
+                <li>点击"加载并解密"按钮</li>
+                <li>查看解密结果</li>
+                <li>分析PRO解锁逻辑</li>
+            </ol>
+            <button class="btn" onclick="loadAndDecrypt()">🔓 加载并解密</button>
+            <button class="btn" onclick="clearResult()">🗑️ 清空结果</button>
+        </div>
+
+        <div id="result"></div>
+
+        <div class="section">
+            <h2>🎯 预期解密的字符串</h2>
+            <table>
+                <tr>
+                    <th>函数调用</th>
+                    <th>索引</th>
+                    <th>密钥</th>
+                    <th>预期结果</th>
+                </tr>
+                <tr>
+                    <td><code>r(227, "f8gZ")</code></td>
+                    <td>227</td>
+                    <td>f8gZ</td>
+                    <td><span class="highlight">headers</span></td>
+                </tr>
+                <tr>
+                    <td><code>r(221, "vKED")</code></td>
+                    <td>221</td>
+                    <td>vKED</td>
+                    <td>请求头名称（待解密）</td>
+                </tr>
+                <tr>
+                    <td><code>r(217, "Iu#s")</code></td>
+                    <td>217</td>
+                    <td>Iu#s</td>
+                    <td>PRO标识（待解密）</td>
+                </tr>
+                <tr>
+                    <td><code>r(231, "D0Sh")</code></td>
+                    <td>231</td>
+                    <td>D0Sh</td>
+                    <td><span class="highlight">User-Agent</span></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>💡 解密原理</h2>
+            <p>代码使用了RC4流加密算法：</p>
+            <div class="code-block">
+1. 从字符串表获取加密数据
+2. 使用密钥进行RC4解密
+3. 返回明文字符串
+
+解密函数：b(index, key)
+- index: 字符串在表中的位置
+- key: RC4解密密钥
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 从xunjijiemi.js中提取的核心解密函数
+        var version_ = "jsjiami.com.v7";
+        var r = b;
+
+        function b(opt_attributes, locals) {
+            var params = a();
+            return b = function(replacementHash, key) {
+                replacementHash = replacementHash - 216;
+                var data = params[replacementHash];
+                if (b["GPiuVV"] === undefined) {
+                    var getOwnPropertyNames = function(o) {
+                        var classNames = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=";
+                        var dots = "";
+                        var sign = "";
+                        var bc = 0;
+                        var bs;
+                        var buffer;
+                        var n = 0;
+                        for (;buffer = o["charAt"](n++);~buffer && (bs = bc % 4 ? bs * 64 + buffer : buffer, bc++ % 4) ? dots += String["fromCharCode"](255 & bs >> (-2 * bc & 6)) : 0) {
+                            buffer = classNames["indexOf"](buffer);
+                        }
+                        var i = 0;
+                        var ii = dots["length"];
+                        for (;i < ii;i++) {
+                            sign += "%" + ("00" + dots["charCodeAt"](i)["toString"](16))["slice"](-2);
+                        }
+                        return decodeURIComponent(sign);
+                    };
+                    var find = function(obj, collection) {
+                        var s = [];
+                        var y = 0;
+                        var value;
+                        var results = "";
+                        obj = getOwnPropertyNames(obj);
+                        var x;
+                        x = 0;
+                        for (;x < 256;x++) {
+                            s[x] = x;
+                        }
+                        x = 0;
+                        for (;x < 256;x++) {
+                            y = (y + s[x] + collection["charCodeAt"](x % collection["length"])) % 256;
+                            value = s[x];
+                            s[x] = s[y];
+                            s[y] = value;
+                        }
+                        x = 0;
+                        y = 0;
+                        var i = 0;
+                        for (;i < obj["length"];i++) {
+                            x = (x + 1) % 256;
+                            y = (y + s[x]) % 256;
+                            value = s[x];
+                            s[x] = s[y];
+                            s[y] = value;
+                            results += String["fromCharCode"](obj["charCodeAt"](i) ^ s[(s[x] + s[y]) % 256]);
+                        }
+                        return results;
+                    };
+                    b["pMTJwy"] = find;
+                    opt_attributes = arguments;
+                    b["GPiuVV"] = !![];
+                }
+                var param = params[0];
+                var unlock = replacementHash + param;
+                var cache = opt_attributes[unlock];
+                return!cache ? (b["ZmqLfw"] === undefined && (b["ZmqLfw"] = !![]), data = b["pMTJwy"](data, key), opt_attributes[unlock] = data) : data = cache, data;
+            }, b(opt_attributes, locals);
+        }
+
+        function a() {
+            var myValue = function() {
+                return[version_, "NyVjsGKjtiIAamRiT.IQNcomC.dUqv7hUDEEkupq==", "WR46EvRcTqZdLc3cUCoN", "EmomESoZt1pcRNJdMuddOCkPWP0", "cCosW5idW4/cS8kIWQC", "kexdPIW6hmkWW6WtmConWQKgtW", "yqrVu0xcN8k2uCkrcvbrbW", "amoCWRucW77cK8k6WR97"].concat(function() {
+                    return["C8o4Emkpjmk+W4O", "W5VcT8o2W67cGmkmhq", "W5JdOZbbCuq8W6ZcVCoUW79k", "W7NcLvTVW5KLivv2W6SSB8oW", "WO4lW7hdK8oToXqqxG", "W4JcG3dcJsGCESkxW6lcKa", "vmoAWRNcOcNcTYVcHqFcT8osW7bz", "v0pdI8kvW43dSmkwW4pcI3pdNSo2ga"].concat(function() {
+                        return["rcCwWRhcNmk7oq", "oxT7nWldH8o7aa", "WOJdGqiQWO5Um2PPW4SEx8oTW4jYwSoOWOdcGWmaBmk/WRK6W5BdOJO3g8kkWR7dICkbW6W3l8o1WOtdJCo3W6JdMCo8WRjhuCoECCk2mwhdN8kKkmk/uCo4nSoVW6hdIvTBr8oIWQO8ymodm1juyvpdOhhcMN/cJ8oGW7/dSSotWRnmWP8DWOdcRmk1gttdG8oWut/dUSosAwPNW74PlsKFDcqFWOpcRsqlEt99W4RcT8kBWRTyW6KBW4WlzgNdT0eNWRddI8kMWPJdKCothComW4zwqSogdNZcSKdcQYFcPMRcNgBdGcGBt8kutSkbf3RdJgbuiG", "dSkCW6TNeZddM8kWWO1fD8oQWR0", "m8k1sCoIDmowowpdLIa"];
+                    }());
+                }());
+            }();
+            a = function() {
+                return myValue;
+            };
+            return a();
+        }
+
+        function loadAndDecrypt() {
+            var resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<h3>🔓 解密结果：</h3>';
+            
+            try {
+                // 解密关键字符串
+                var result1 = r(227, "f8gZ");
+                var result2 = r(221, "vKED");
+                var result3 = r(217, "Iu#s");
+                var result4 = r(231, "D0Sh");
+
+                // 显示结果
+                resultDiv.innerHTML += '<div class="result">';
+                resultDiv.innerHTML += '<h4>✅ 解密成功！</h4>';
+                resultDiv.innerHTML += '<table>';
+                resultDiv.innerHTML += '<tr><th>函数调用</th><th>解密结果</th></tr>';
+                resultDiv.innerHTML += '<tr><td><code>r(227, "f8gZ")</code></td><td><strong>' + result1 + '</strong></td></tr>';
+                resultDiv.innerHTML += '<tr><td><code>r(221, "vKED")</code></td><td><strong>' + result2 + '</strong></td></tr>';
+                resultDiv.innerHTML += '<tr><td><code>r(217, "Iu#s")</code></td><td><strong>' + result3 + '</strong></td></tr>';
+                resultDiv.innerHTML += '<tr><td><code>r(231, "D0Sh")</code></td><td><strong>' + result4 + '</strong></td></tr>';
+                resultDiv.innerHTML += '</table>';
+                resultDiv.innerHTML += '</div>';
+
+                // 显示解密后的代码
+                resultDiv.innerHTML += '<div class="section">';
+                resultDiv.innerHTML += '<h3>📝 解密后的代码：</h3>';
+                resultDiv.innerHTML += '<div class="code-block">';
+                resultDiv.innerHTML += 'var modifiedHeaders = $request["' + result1 + '"];\n';
+                resultDiv.innerHTML += 'modifiedHeaders["' + result2 + '"] = "' + result3 + '";\n';
+                resultDiv.innerHTML += 'modifiedHeaders["' + result4 + '"] = "trainnote/1 CFNetwork/1325.0.1 Darwin/21.1.0";\n';
+                resultDiv.innerHTML += '$done({"headers": modifiedHeaders});';
+                resultDiv.innerHTML += '</div>';
+                resultDiv.innerHTML += '</div>';
+
+                // 分析PRO解锁机制
+                resultDiv.innerHTML += '<div class="section">';
+                resultDiv.innerHTML += '<h3>🎯 PRO解锁机制分析：</h3>';
+                resultDiv.innerHTML += '<p><strong>关键发现：</strong></p>';
+                resultDiv.innerHTML += '<ul>';
+                resultDiv.innerHTML += '<li>修改的请求头：<strong>' + result2 + '</strong></li>';
+                resultDiv.innerHTML += '<li>设置的值：<strong>' + result3 + '</strong></li>';
+                resultDiv.innerHTML += '<li>修改的User-Agent：<strong>' + result4 + '</strong></li>';
+                resultDiv.innerHTML += '</ul>';
+                resultDiv.innerHTML += '<p><strong>解锁原理：</strong></p>';
+                resultDiv.innerHTML += '<p>通过修改HTTP请求头 <strong>' + result2 + '</strong> 为 <strong>' + result3 + '</strong>，欺骗服务器认为当前用户是PRO用户，从而返回PRO数据。</p>';
+                resultDiv.innerHTML += '</div>';
+
+            } catch (e) {
+                resultDiv.innerHTML += '<div class="error">';
+                resultDiv.innerHTML += '<h4>❌ 解密失败</h4>';
+                resultDiv.innerHTML += '<p>错误信息：' + e.message + '</p>';
+                resultDiv.innerHTML += '</div>';
+            }
+        }
+
+        function clearResult() {
+            document.getElementById('result').innerHTML = '';
+        }
+    </script>
+</body>
+</html>

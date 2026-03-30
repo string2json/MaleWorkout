@@ -1,0 +1,15 @@
+#!name=训记PRO解锁（解密版）
+#!desc=解锁训记APP PRO功能（基于混淆代码解密分析）
+#!author=ios151（原始作者）+ 解密分析
+#!homepage=https://github.com/string2json/MaleWorkout
+#!url=https://raw.githubusercontent.com/string2json/MaleWorkout/refs/heads/master/训记/解密后_完整版.plugin
+
+[Script]
+# 拦截旧版本API（v4）
+http-request ^https:\/\/api\.xunjiapp\.cn\/whole_user_info_v4 script-path=https://raw.githubusercontent.com/string2json/MaleWorkout/refs/heads/master/训记/解密后_完整版.js, tag=训记PRO解锁v4
+
+# 如果需要尝试新版本API（v3），取消下面的注释
+# http-request ^https:\/\/api\.xunjiapp\.cn\/whole_user_info_checks_3 script-path=https://raw.githubusercontent.com/string2json/MaleWorkout/refs/heads/master/训记/解密后_完整版.js, tag=训记PRO解锁v3
+
+[MITM]
+hostname = %APPEND% api.xunjiapp.cn
